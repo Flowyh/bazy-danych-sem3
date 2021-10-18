@@ -7,6 +7,8 @@
 **Kod grupy: K06-46a**
 **Używany dialekt zapytań: MySQL**
 
+[Github Markdown](https://github.com/Flowyh/bazy-danych-sem3/blob/main/lista01/sprawozdanie-lista01-261743.md)
+
 ## Rozwiązania zadań:
 
 **Zad 1.**
