@@ -1,6 +1,6 @@
 # Sprawozdanie [Lista01](https://cs.pwr.edu.pl/bojko/pdfy/db-lab1.pdf)
 ## Przedmiot: Bazy danych i systemy informacyjne
-## Prowadzący: Mgr. Dominik Bojko
+## Prowadzący: Mgr Dominik Bojko
 **Autor: Maciej Bazela**
 **Indeks: 261743**
 **Grupa: Śr. 7:30-9:00**
@@ -32,7 +32,7 @@
   Total rows: 23
 
 * Komentarz:
-  Powyższa kwerenda jest równozaczna wywołaniu: 
+  Powyższa kwerenda jest równoznaczna wywołaniu: 
   ```sql 
   show tables
   ```
@@ -224,7 +224,7 @@
                           join payment p on c2.customer_id = p.customer_id
                 where r.staff_id <> p.staff_id
   ```
-  W tym podzapytaniu wybieramy id klienta, który został obsłużony przez dwóch różnych pracowników podczas wynajmowania filmu oraz zapłaty za wynajem (założyłem, że chodziło o właśnie o porównywanie tabelek rental i payment; dla 2x rental i 2x payment wyniki są takie same).
+  W tym podzapytaniu wybieramy id klienta, który został obsłużony przez dwóch różnych pracowników podczas wynajmowania filmu oraz zapłaty za wynajem (założyłem, że chodziło właśnie o porównywanie tabelek rental i payment; dla 2x rental i 2x payment wyniki są takie same).
   ```sql
                 where r.staff_id <> p.staff_id
   ```
@@ -371,7 +371,7 @@
   Total rows: 61
 
 * Komentarz:
-  Tworzymy dwa pod zapytania, w jednym zliczamy w ilu horrorach grał aktor, w drugim w ilu filmach akcji. Tak jak w zadaniu 10 tworzymy dwie zmienne, które możemy ze sobą porównać.
+  Tworzymy dwa podzapytania, w jednym zliczamy w ilu horrorach grał aktor, w drugim w ilu filmach akcji. Tak jak w zadaniu 10 tworzymy dwie zmienne, które możemy ze sobą porównać.
 
 **Zad 14**
 
